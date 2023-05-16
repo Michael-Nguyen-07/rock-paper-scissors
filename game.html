@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+
+      function getComputerChoice() {
+        const choices = ["Rock", "Paper", "Scissors"];
+        const randomIndex = Math.floor(Math.random() * 3);
+        return choices[randomIndex];
+      }
+
+      function playRound(playerSelection, computerChoice) {
+        // Winning situations
+        if (playerSelection == "Paper" && computerChoice == "Rock" || playerSelection == "Rock" && computerChoice == "Scissors" || playerSelection == "Scissors" && computerChoice == "Paper") {
+          console.log("Nice job! You won");
+          player_score++
+        } else if (playerSelection == "Rock" && computerChoice == "Paper" || playerSelection == "Paper" && computerChoice == "Scissors" || playerSelection == "Scissors" && computerChoice == "Rock") {
+          console.log("Oh no! You lost");
+          computer_score++
+
+        } else {
+          console.log("A tie! Try again next time.")
+        }
+      }
+
+
+
+
+      /**
+       * ! Check who is the winner
+       */
+
+      let roundNumber = 1;
+      let player_score = 0;
+      let computer_score = 0;
+      while (roundNumber <= 5) {
+        console.log("--------------------------------");
+        console.log(`This is round ${roundNumber}`);
+        const playerSelection = prompt("Please enter your input: ");
+        const computerChoice = getComputerChoice();
+        console.log(playRound(playerSelection, computerChoice));
+        console.log(`Player's score: ${player_score}`);
+        console.log(`Computer's score: ${computer_score}`);
+        roundNumber++
+      }
+    </script>
+  </body>
+</html>
